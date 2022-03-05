@@ -48,11 +48,11 @@ public class Function_activity extends Activity{
 
 	 public boolean onKeyDown(int keyCode, KeyEvent event)  
 	    {  
-	        if (keyCode == KeyEvent.KEYCODE_BACK )  //·µ»Ø¼ü±»µã»÷
+	        if (keyCode == KeyEvent.KEYCODE_BACK )  //è¿”å›é”®è¢«ç‚¹å‡»
 	        {
 	        	AlertDialog.Builder dialog=new AlertDialog.Builder(Function_activity.this);
-	        	dialog.setTitle("È·¶¨ÒªÍË³ö£¿");
-	        	dialog.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+	        	dialog.setTitle("ç¡®å®šè¦é€€å‡ºï¼Ÿ");
+	        	dialog.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 					
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
@@ -67,7 +67,7 @@ public class Function_activity extends Activity{
 						finish();
 					}
 				});
-	        	dialog.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+	        	dialog.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
@@ -91,33 +91,33 @@ public class Function_activity extends Activity{
 		ImageButton control=(ImageButton)findViewById(R.id.control);
 		ImageButton power=(ImageButton)findViewById(R.id.power);
 		ImageButton more=(ImageButton)findViewById(R.id.more);
-				//²é¿´µçÄÔÎÄ¼ş
+				//æŸ¥çœ‹ç”µè„‘æ–‡ä»¶
 		data_inpc.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub  
 			sendmsg("data_inpc");
 			Intent  data_inpc_activity=new Intent(Function_activity.this,data_inpc_activity.class);
-			startActivity(data_inpc_activity);//ÇĞ»»Ò³Ãæ
+			startActivity(data_inpc_activity);//åˆ‡æ¢é¡µé¢
 			finish();
 
 			}
 		});
 		
-		//´ò¿ªµçÄÔÉãÏñÍ·
+		//æ‰“å¼€ç”µè„‘æ‘„åƒå¤´
 		camera.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				sendmsg("camera");
 				Intent  camera_activity=new Intent(Function_activity.this,camera_activity.class);
-				startActivity(camera_activity);//ÇĞ»»Ò³Ãæ
+				startActivity(camera_activity);//åˆ‡æ¢é¡µé¢
 				finish();
 
 			}
 		});
 		
-		//Ä£ÄâÊó±ê
+		//æ¨¡æ‹Ÿé¼ æ ‡
 		model_mouse.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -125,12 +125,12 @@ public class Function_activity extends Activity{
 				// TODO Auto-generated method stub
 				sendmsg("model_mouse");
 				Intent  model_mouse_activity=new Intent(Function_activity.this,model_mouse_activity.class);
-				startActivity(model_mouse_activity);//ÇĞ»»Ò³Ãæ
+				startActivity(model_mouse_activity);//åˆ‡æ¢é¡µé¢
 				finish();
 			}
 		});
 		
-		//Ä£Äâ´¥Ãş°å
+		//æ¨¡æ‹Ÿè§¦æ‘¸æ¿
 		model_touch.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -138,12 +138,12 @@ public class Function_activity extends Activity{
 				// TODO Auto-generated method stub
 				sendmsg("model_touch");
 				Intent  model_touch_activity=new Intent(Function_activity.this,model_touch_activity.class);
-				startActivity(model_touch_activity);//ÇĞ»»Ò³Ãæ
+				startActivity(model_touch_activity);//åˆ‡æ¢é¡µé¢
 				finish();
 			}
 		});
 		
-		//ÊµÊ±¿ØÖÆµçÄÔ
+		//å®æ—¶æ§åˆ¶ç”µè„‘
 		control.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -151,13 +151,13 @@ public class Function_activity extends Activity{
 				// TODO Auto-generated method stub
 				sendmsg("control");
 				Intent  control_activity=new Intent(Function_activity.this,control_activity.class);
-				startActivity(control_activity);//ÇĞ»»Ò³Ãæ
+				startActivity(control_activity);//åˆ‡æ¢é¡µé¢
 				finish();
 
 			}
 		});
 		
-		//µçÔ´
+		//ç”µæº
 		power.setOnClickListener(new View.OnClickListener() {
 			int select;
 			@Override
@@ -166,23 +166,23 @@ public class Function_activity extends Activity{
 				sendmsg("power");
 				AlertDialog.Builder power_dialog = new AlertDialog.Builder(Function_activity.this);
 				power_dialog.setTitle("POWER");
-				final String[]  m_Items={"ËøÆÁ","¹Ø»ú","ÖØÆô"};
+				final String[]  m_Items={"é”å±","å…³æœº","é‡å¯"};
 				power_dialog.setSingleChoiceItems(m_Items, 0, new DialogInterface.OnClickListener()
 				         {
 				             public void onClick(DialogInterface dialog, int whichButton)
 				             {
-				                 showDialog("·şÎñ¶Ë¼´½«" + m_Items[whichButton]);
+				                 showDialog("æœåŠ¡ç«¯å³å°†" + m_Items[whichButton]);
 				                 select=whichButton;
 				             }
 				         });
-				power_dialog.setPositiveButton("È¡Ïû", new DialogInterface.OnClickListener()
+				power_dialog.setPositiveButton("å–æ¶ˆ", new DialogInterface.OnClickListener()
 				         {
 				             public void onClick(DialogInterface dialog, int whichButton)
 				             {
 				               sendmsg("cancle");
 				             }
 				         });
-				power_dialog.setNegativeButton("È·¶¨", new DialogInterface.OnClickListener()
+				power_dialog.setNegativeButton("ç¡®å®š", new DialogInterface.OnClickListener()
 				         {
 				             public void onClick(DialogInterface dialog, int whichButton)
 				             { 
@@ -192,7 +192,7 @@ public class Function_activity extends Activity{
 					                	 sendmsg("lock");
 					                	 break;
 					                 case 1:
-					                	 Toast.makeText(getApplicationContext(), "½«ÓÚ5ÃëºóÍË³ö",Toast.LENGTH_LONG).show();
+					                	 Toast.makeText(getApplicationContext(), "å°†äº5ç§’åé€€å‡º",Toast.LENGTH_LONG).show();
 					                	 new Thread()
 					     				{
 					     					public void run() {
@@ -211,7 +211,7 @@ public class Function_activity extends Activity{
 					                	 
 					                	 break;
 					                 case 2:
-					                	 Toast.makeText(getApplicationContext(), "½«ÓÚ5ÃëºóÍË³ö",Toast.LENGTH_LONG).show();
+					                	 Toast.makeText(getApplicationContext(), "å°†äº5ç§’åé€€å‡º",Toast.LENGTH_LONG).show();
 					                	 new Thread()
 					     				{
 					     					public void run() {
@@ -236,7 +236,7 @@ public class Function_activity extends Activity{
 			}
 		});
 		
-		//¸ü¶à¹¦ÄÜ
+		//æ›´å¤šåŠŸèƒ½
 		more.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -244,7 +244,7 @@ public class Function_activity extends Activity{
 				// TODO Auto-generated method stub
 				sendmsg("more");
 				Intent  more_activity=new Intent(Function_activity.this,more_activity.class);
-				startActivity(more_activity);//ÇĞ»»Ò³Ãæ
+				startActivity(more_activity);//åˆ‡æ¢é¡µé¢
 				finish();
 
 			}
