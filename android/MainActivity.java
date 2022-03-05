@@ -40,12 +40,12 @@ public class MainActivity extends Activity {
 		});	
 		
 	} 
-	//ÌáÊ¾¿ò
+	//æç¤ºæ¡†
 	protected void warn_dialog() {  
 		 Dialog warn_dialog = new AlertDialog.Builder(this). 
-         setTitle("ÌáÊ¾"). 
-         setMessage("ÇëÈ·±£·şÎñ¶ËÒÑ¿ªÆô£¬²¢ÇÒ¿Í»§¶ËÓë·şÎñ¶Ë´¦ÓÚÍ¬Ò»¾ÖÓòÍø"). 
-         setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() { 
+         setTitle("æç¤º"). 
+         setMessage("è¯·ç¡®ä¿æœåŠ¡ç«¯å·²å¼€å¯ï¼Œå¹¶ä¸”å®¢æˆ·ç«¯ä¸æœåŠ¡ç«¯å¤„äºåŒä¸€å±€åŸŸç½‘"). 
+         setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() { 
              @Override 
              public void onClick(DialogInterface dialog, int which) { 
                  // TODO Auto-generated method stub  
@@ -60,14 +60,14 @@ public class MainActivity extends Activity {
 		try {
 			  EditText ip_edit=(EditText)(findViewById(R.id.editText1));
 			  String ip=ip_edit.getText().toString();	
-			  Socket socket_client=my_socket_client.getsocket();//my_socket_clientÀàÖĞµÄsocket×÷ÎªÈ«¾Ö±äÁ¿Ê¹ÓÃ
+			  Socket socket_client=my_socket_client.getsocket();//my_socket_clientç±»ä¸­çš„socketä½œä¸ºå…¨å±€å˜é‡ä½¿ç”¨
 			  SocketAddress serveraddr= new InetSocketAddress(ip, 8426);
 			  socket_client.connect(serveraddr);
 			  if(socket_client!=null)
 			  {
 				 Message msg = new Message();          
 	              Bundle data = new Bundle();  
-	              data.putString("success", "ok");//successÊÇ±êÇ©,handleMessageÖĞÊ¹ÓÃ  
+	              data.putString("success", "ok");//successæ˜¯æ ‡ç­¾,handleMessageä¸­ä½¿ç”¨  
 	              msg.setData(data);  
 	              MainActivity.this.myHandler.sendMessage(msg); 
 			  }
@@ -75,15 +75,15 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			      Message msg = new Message();          
 	              Bundle data = new Bundle();  
-	              data.putString("success", "error");//successÊÇ±êÇ©,handleMessageÖĞÊ¹ÓÃ  
+	              data.putString("success", "error");//successæ˜¯æ ‡ç­¾,handleMessageä¸­ä½¿ç”¨  
 	              msg.setData(data);  
-	              MainActivity.this.myHandler.sendMessage(msg); // ÏòHandler·¢ËÍÏûÏ¢,¸üĞÂUI
+	              MainActivity.this.myHandler.sendMessage(msg); // å‘Handlerå‘é€æ¶ˆæ¯,æ›´æ–°UI
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
                 Message msg = Message.obtain();          
 	               Bundle data = new Bundle();  
-	              data.putString("success", "error");//successÊÇ±êÇ©,handleMessageÖĞÊ¹ÓÃ  
+	              data.putString("success", "error");//successæ˜¯æ ‡ç­¾,handleMessageä¸­ä½¿ç”¨  
 	              msg.setData(data);  
 	              MainActivity.this.myHandler.sendMessage(msg); 
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
 		   public MyHandler(Looper L) {
 				   super(L);	     
 		   }
-	   // ×ÓÀà±ØĞëÖØĞ´´Ë·½·¨,½ÓÊÜÊı¾İ		      
+	   // å­ç±»å¿…é¡»é‡å†™æ­¤æ–¹æ³•,æ¥å—æ•°æ®		      
 		  @Override	    
 		    public void handleMessage(Message msg) {		           
 		 // TODO Auto-generated method stub		         
@@ -113,37 +113,37 @@ public class MainActivity extends Activity {
 		  };
 				
 	
-	//µ¯³öÁ¬½Ó³É¹¦ÌáÊ¾¿ò
+	//å¼¹å‡ºè¿æ¥æˆåŠŸæç¤ºæ¡†
 	protected void dialog() {  
 		  Dialog alertDialog = new AlertDialog.Builder(MainActivity.this). 
-                 setTitle("ÌáÊ¾"). 
-                 setMessage("Á¬½Ó·şÎñ¶Ë³É¹¦£¡"). 
-                 setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() { 
+                 setTitle("æç¤º"). 
+                 setMessage("è¿æ¥æœåŠ¡ç«¯æˆåŠŸï¼"). 
+                 setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() { 
                       
                      @Override 
                      public void onClick(DialogInterface dialog, int which) { 
                          // TODO Auto-generated method stub  
-                    	 //Òş²Ø¶Ô»°¿ò
+                    	 //éšè—å¯¹è¯æ¡†
                     	 dialog.dismiss();
-                    	 //Ìø×ªµ½¹¦ÄÜÒ³Ãæ
+                    	 //è·³è½¬åˆ°åŠŸèƒ½é¡µé¢
                     	 Intent function_activity=new Intent(MainActivity.this,Function_activity.class);
                     	 startActivity(function_activity);
-                    	 finish();//¹Ø±Õµ±Ç°Ò³Ãæ
+                    	 finish();//å…³é—­å½“å‰é¡µé¢
                      } 
                  }). 
                  create(); 
                 alertDialog.show(); 
 	}
-	//Á¬½Ó³ö´í
+	//è¿æ¥å‡ºé”™
 	protected void error_dialog() {  
 		  Dialog error_dialog = new AlertDialog.Builder(MainActivity.this). 
-                 setTitle("ÌáÊ¾"). 
-                 setMessage("Á¬½Ó·şÎñÆ÷Ê§°Ü£¬Çë¼ì²éÉèÖÃ£¡"). 
-                 setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {                      
+                 setTitle("æç¤º"). 
+                 setMessage("è¿æ¥æœåŠ¡å™¨å¤±è´¥ï¼Œè¯·æ£€æŸ¥è®¾ç½®ï¼"). 
+                 setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {                      
                      @Override 
                      public void onClick(DialogInterface dialog, int which) { 
                          // TODO Auto-generated method stub  
-                    	 //Òş²Ø¶Ô»°¿ò
+                    	 //éšè—å¯¹è¯æ¡†
                     	 dialog.dismiss();
                      } 
                  }). 
