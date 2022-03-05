@@ -13,20 +13,20 @@ public class model_touch {
 	  switch(str)
 	  	{
 	  	case "singledown":
-	  		robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);//µ¥»ú×ó¼ü
+	  		robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);//å•æœºå·¦é”®
 	  		break;
 	  	case "singleup":
-	  		robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);//ÊÍ·Å×ó¼ü
+	  		robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);//é‡Šæ”¾å·¦é”®
 	  		break;
 	  	case "right":
-	  		robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);//µ¥»úÓÒ¼ü
-	  		robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);//ÊÍ·Å×ó¼ü
+	  		robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);//å•æœºå³é”®
+	  		robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);//é‡Šæ”¾å·¦é”®
 	  		break;
 	  	default:
-	  		String xy[]=str.split("\\+");//ÒÔ+Îª±ê×¼½«×Ö·û´®·Ö³ÉÁ½²¿·ÖXºÍY
-	  		Point point=MouseInfo.getPointerInfo().getLocation();//»ñÈ¡Êó±êµ±Ç°×ø±ê
-	  		point.x-=Integer.parseInt(xy[1]);//ºáÆÁºó¶ÔÓ¦×ª»¯
-	  		point.y+=Integer.parseInt(xy[0]);//ºáÆÁºó¶ÔÓ¦×ª»¯
+	  		String xy[]=str.split("\\+");//ä»¥+ä¸ºæ ‡å‡†å°†å­—ç¬¦ä¸²åˆ†æˆä¸¤éƒ¨åˆ†Xå’ŒY
+	  		Point point=MouseInfo.getPointerInfo().getLocation();//è·å–é¼ æ ‡å½“å‰åæ ‡
+	  		point.x-=Integer.parseInt(xy[1]);//æ¨ªå±åå¯¹åº”è½¬åŒ–
+	  		point.y+=Integer.parseInt(xy[0]);//æ¨ªå±åå¯¹åº”è½¬åŒ–
 	  		robot.mouseMove(point.x, point.y);
 	  		break;
 	  		
