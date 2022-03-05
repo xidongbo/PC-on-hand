@@ -15,43 +15,43 @@ public class data_inpc {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	 File [] root = File.listRoots(); //»ñÈ¡´ÅÅÌ·ÖÇø
+    	 File [] root = File.listRoots(); //è·å–ç£ç›˜åˆ†åŒº
     	 for(File file : root) 
     	 { 
-    		 if(file.canRead())//²»»ñÈ¡¹âÇı
+    		 if(file.canRead())//ä¸è·å–å…‰é©±
     		 {
-    		 rootpath=file.getPath().substring(0, 2);//²»»ñÈ¡·´Ğ±¸Ü
+    		 rootpath=file.getPath().substring(0, 2);//ä¸è·å–åæ–œæ 
     	     pw.println(rootpath); 
     		 pw.flush();
     		 }
     	 } 
-    	 pw.println("over");//±íÊ¾µ±Ç°ÎÄ¼şÄ¿Â¼´«ÊäÍê±Ï
+    	 pw.println("over");//è¡¨ç¤ºå½“å‰æ–‡ä»¶ç›®å½•ä¼ è¾“å®Œæ¯•
     	 pw.flush();
      }
      public void data_inpc1(String str)
      {
     	 File folder=new File(str);
-    	 if(folder.isFile())//Èç¹ûÊÇÎÄ¼ş¾Í·¢ËÍÎÄ¼ş
+    	 if(folder.isFile())//å¦‚æœæ˜¯æ–‡ä»¶å°±å‘é€æ–‡ä»¶
     	 {
-    		//·¢ËÍÎÄ¼şµ½·şÎñ¶Ë
+    		//å‘é€æ–‡ä»¶åˆ°æœåŠ¡ç«¯
     	 }
-    	 else//·ñÔò·¢ËÍÎÄ¼ş¼ĞÏÂÄ¿Â¼
+    	 else//å¦åˆ™å‘é€æ–‡ä»¶å¤¹ä¸‹ç›®å½•
     	 {
     		 File folder2=new File(str+"\\");
-	    	 File[] list=folder2.listFiles();//»ñÈ¡str\ÎÄ¼ş¼ĞÏÂµÄÄ¿Â¼
+	    	 File[] list=folder2.listFiles();//è·å–str\æ–‡ä»¶å¤¹ä¸‹çš„ç›®å½•
 	    	 for(File file:list)
 	    	 {
 	    		 if(file.isFile())
 	    		 {
-	    			 pw.println(">");//¸æËß¿Í»§¶ËÊÇÎÄ¼ş£¬·ÇÎÄ¼ş¼Ğ,>²»ÄÜ³öÏÖÔÚÎÄ¼şÃûÖĞ£¬¹ÊÒÔ>Îª±êÖ¾£¬·ÀÖ¹³ö´í
+	    			 pw.println(">");//å‘Šè¯‰å®¢æˆ·ç«¯æ˜¯æ–‡ä»¶ï¼Œéæ–‡ä»¶å¤¹,>ä¸èƒ½å‡ºç°åœ¨æ–‡ä»¶åä¸­ï¼Œæ•…ä»¥>ä¸ºæ ‡å¿—ï¼Œé˜²æ­¢å‡ºé”™
 	        		 pw.flush();
-	        		 pw.println(file.getName());//·¢ËÍÎÄ¼şÃû
+	        		 pw.println(file.getName());//å‘é€æ–‡ä»¶å
 	        		 pw.flush();
-	        		 pw.println(file.length());//·¢ËÍÎÄ¼ş´óĞ¡
+	        		 pw.println(file.length());//å‘é€æ–‡ä»¶å¤§å°
 	        		 pw.flush();
 	    		 }
 	    		 else{
-	    		 pw.println(file.getName());//·¢ËÍstrÎÄ¼ş¼ĞÏÂµÄÄ¿Â¼µ½¿Í»§¶Ë
+	    		 pw.println(file.getName());//å‘é€stræ–‡ä»¶å¤¹ä¸‹çš„ç›®å½•åˆ°å®¢æˆ·ç«¯
 	    		 pw.flush();
 	    		 }
 	    	 }
