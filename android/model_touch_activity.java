@@ -16,7 +16,7 @@ import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
 
 public class model_touch_activity extends Activity implements OnTouchListener, OnGestureListener{
-	public void sendmsg(String msg){//½«msg·¢ËÍµ½·şÎñ¶Ë
+	public void sendmsg(String msg){//å°†msgå‘é€åˆ°æœåŠ¡ç«¯
 		Socket socket_client=my_socket_client.getsocket();
 		try {
 			PrintWriter out=new PrintWriter(socket_client.getOutputStream());
@@ -29,7 +29,7 @@ public class model_touch_activity extends Activity implements OnTouchListener, O
 	} 
 	    public boolean onKeyDown(int keyCode, KeyEvent event)  
 	    {  
-	        if (keyCode == KeyEvent.KEYCODE_BACK )  //·µ»Ø¼ü±»µã»÷
+	        if (keyCode == KeyEvent.KEYCODE_BACK )  //è¿”å›é”®è¢«ç‚¹å‡»
 	        {
 	        	sendmsg("return");
 	           Intent function_activity=new Intent(model_touch_activity.this,Function_activity.class);
@@ -58,10 +58,10 @@ public class model_touch_activity extends Activity implements OnTouchListener, O
 				switch(event.getAction())
 				{
 				case KeyEvent.ACTION_DOWN:
-					sendmsg("singledown");//µ¥»ú°´ÏÂ
+					sendmsg("singledown");//å•æœºæŒ‰ä¸‹
 					break;
 				case KeyEvent.ACTION_UP:
-					sendmsg("singleup");//µ¥»úËÉ¿ª
+					sendmsg("singleup");//å•æœºæ¾å¼€
 					break;
 				default:
 					break;
@@ -74,12 +74,12 @@ public class model_touch_activity extends Activity implements OnTouchListener, O
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				sendmsg("right");//ÓÒ»÷
+				sendmsg("right");//å³å‡»
 			}
 		});
 		gestureDetector=new GestureDetector(this,this);
 		touch.setOnTouchListener(new View.OnTouchListener() {
-			//¶Ôtouch½øĞĞÊÖÊÆÊ¶±ğ
+			//å¯¹touchè¿›è¡Œæ‰‹åŠ¿è¯†åˆ«
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				// TODO Auto-generated method stub
@@ -110,9 +110,9 @@ public class model_touch_activity extends Activity implements OnTouchListener, O
 	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distancex,
 			float distancey) {
 		// TODO Auto-generated method stub
-		x=(int) distancex;//×óÒÆÎªÕı
-		y=(int)distancey;//ÉÏÒÆÎªÕı
-		xy=String.valueOf(x)+"+"+String.valueOf(y);//×ª»¯ÎªX+YµÄĞÎÊ½·¢ËÍ
+		x=(int) distancex;//å·¦ç§»ä¸ºæ­£
+		y=(int)distancey;//ä¸Šç§»ä¸ºæ­£
+		xy=String.valueOf(x)+"+"+String.valueOf(y);//è½¬åŒ–ä¸ºX+Yçš„å½¢å¼å‘é€
 		sendmsg(xy);
 		return false;
 	}
