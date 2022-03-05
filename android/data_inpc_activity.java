@@ -33,32 +33,32 @@ public class data_inpc_activity extends ListActivity{
 	BufferedReader in;
 	PrintWriter pw;
 	String path="";
-	String pre_path="";//µ±Ç°Â·¾¶µÄÉÏÒ»¼¶Â·¾¶
+	String pre_path="";//å½“å‰è·¯å¾„çš„ä¸Šä¸€çº§è·¯å¾„
 	 List<Map<String, Object>> list= new ArrayList<Map<String, Object>>(); 
 	 Map<String,Object> map;
 	 public boolean onKeyDown(int keyCode, KeyEvent event)  
 	    {  
-	        if (keyCode == KeyEvent.KEYCODE_BACK )  //·µ»Ø¼ü±»µã»÷
+	        if (keyCode == KeyEvent.KEYCODE_BACK )  //è¿”å›é”®è¢«ç‚¹å‡»
 	        {
 	        	pre_path=getpre_path(path);
-	        	if((path.length())!=0)//µ±Ç°²»ÊÇ¸ùÄ¿Â¼
+	        	if((path.length())!=0)//å½“å‰ä¸æ˜¯æ ¹ç›®å½•
 	        	{
 	        	  path=pre_path;
 	        	  if((pre_path.length())==0)
 	        	  {
-	        		  pw.println("root");//·µ»Ø¸ùÄ¿Â¼
+	        		  pw.println("root");//è¿”å›æ ¹ç›®å½•
 		        	  pw.flush();
 	        	  }
 	        	  else
 	        	  {
-     	            pw.println(pre_path);//·µ»ØÉÏÒ»¼¶Â·¾¶
+     	            pw.println(pre_path);//è¿”å›ä¸Šä¸€çº§è·¯å¾„
 	        	     pw.flush();
 	        	     path+="\\";
 	        	  } 
 	        	  return_handler();
 	        	}
 	        	else
-	        	{//·µ»ØÖ÷²Ëµ¥
+	        	{//è¿”å›ä¸»èœå•
 	        		pw.println("return");
 	        		pw.flush();
 	        		Intent function_intent=new Intent(data_inpc_activity.this, Function_activity.class);
@@ -89,10 +89,10 @@ public class data_inpc_activity extends ListActivity{
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-				//»ñÈ¡µ½µ±Ç°µã»÷µÄÎÄ¼şÃû
+				//è·å–åˆ°å½“å‰ç‚¹å‡»çš„æ–‡ä»¶å
 				TextView file_name=(TextView)arg1.findViewById(R.id.file_name);
 				String sfile_name=file_name.getText().toString();
-				 //½«ÎÄ¼şÃûÌí¼Óµ½µ±Ç°Â·¾¶Àï·¢Éú¸ø·şÎñ¶Ë
+				 //å°†æ–‡ä»¶åæ·»åŠ åˆ°å½“å‰è·¯å¾„é‡Œå‘ç”Ÿç»™æœåŠ¡ç«¯
 				path+=sfile_name;
 				pw.println(path);
 				pw.flush();
@@ -107,7 +107,7 @@ public class data_inpc_activity extends ListActivity{
 				// TODO Auto-generated method stub
 				path="";
 				pre_path="";
-				pw.println("root");//·µ»Ø¸ùÄ¿Â¼
+				pw.println("root");//è¿”å›æ ¹ç›®å½•
 				pw.flush();
 				return_handler();
 			}
@@ -115,27 +115,27 @@ public class data_inpc_activity extends ListActivity{
 		myHandler=new MyHandler1();
 		return_handler();
 	}
-	public void return_handler(){//½ÓÊÕ·şÎñ¶Ë·¢À´µÄÊı¾İ£¬·µ»Ø¸øhandlerÒÔ¸üĞÂUI
+	public void return_handler(){//æ¥æ”¶æœåŠ¡ç«¯å‘æ¥çš„æ•°æ®ï¼Œè¿”å›ç»™handlerä»¥æ›´æ–°UI
 		new Thread(){
 			public void run(){
 				try {
 					list.clear();
 					while((str=in.readLine())!=null)
 					{
-						if(str.equals("over"))//µ±Ç°Ä¿Â¼ÒÑ·¢ËÍÍê±Ï
+						if(str.equals("over"))//å½“å‰ç›®å½•å·²å‘é€å®Œæ¯•
 						{
 							 Message msg = Message.obtain();          
 			   	              Bundle data = new Bundle();  
 			   	              data.putString("data", "ok"); 
 			   	              msg.setData(data); 
-							data_inpc_activity.this.myHandler.sendMessage(msg); //·¢ËÍ¸øhandle¸üĞÂUI
-							break;//µ±Ç°Ä¿Â¼·¢ËÍÍê±Ï
+							data_inpc_activity.this.myHandler.sendMessage(msg); //å‘é€ç»™handleæ›´æ–°UI
+							break;//å½“å‰ç›®å½•å‘é€å®Œæ¯•
 						}
 						map=new HashMap<String,Object>();
-						if(str.equals(">"))//ÊÇÎÄ¼ş,ÓÉÓÚ>²»ÄÜ³öÏÖÔÚÎÄ¼şÃûÖĞ£¬¹ÊÒÔ>Îª±êÖ¾£¬·ÀÖ¹ÓëÎÄ¼şÃû»ìÏı
+						if(str.equals(">"))//æ˜¯æ–‡ä»¶,ç”±äº>ä¸èƒ½å‡ºç°åœ¨æ–‡ä»¶åä¸­ï¼Œæ•…ä»¥>ä¸ºæ ‡å¿—ï¼Œé˜²æ­¢ä¸æ–‡ä»¶åæ··æ·†
 						{
-		   	              str=in.readLine();//¶ÁÈ¡ÎÄ¼şÃû
-						  length=in.readLine();//¶ÁÈ¡ÎÄ¼ş´óĞ¡
+		   	              str=in.readLine();//è¯»å–æ–‡ä»¶å
+						  length=in.readLine();//è¯»å–æ–‡ä»¶å¤§å°
 						  map.put("name",str);
 						  map.put("size",getFileSize(length));
 						  map.put("icon",R.drawable.file);
@@ -143,7 +143,7 @@ public class data_inpc_activity extends ListActivity{
 						}
 						else
 						{
-				   	          map.put("name",str);//ÎÄ¼ş¼ĞÃû
+				   	          map.put("name",str);//æ–‡ä»¶å¤¹å
 							   map.put("size","");
 							   map.put("icon",R.drawable.folder);
 							   list.add(map);
@@ -157,7 +157,7 @@ public class data_inpc_activity extends ListActivity{
 		}.start();
 	}
 	public String getFileSize(String length)
-	  {//½«ÎÄ¼ş´óĞ¡±ä»»µ¥Î»
+	  {//å°†æ–‡ä»¶å¤§å°å˜æ¢å•ä½
 		  String show=null;
 		  int sub_index=0;
 		  long size=Long.parseLong(length);//String to long
@@ -177,14 +177,14 @@ public class data_inpc_activity extends ListActivity{
 			} 
 		  else
 		  { 
-			sub_index=String.valueOf((float)size/1073741824).indexOf("."); //³ı2µÄ30´Î·½£¬ÕÒµ½¡°.¡±µÄË÷Òı
-			show=((float)size/1073741824+"000").substring(0,sub_index+3)+"GB"; //±£ÁôÈıÎ»
+			sub_index=String.valueOf((float)size/1073741824).indexOf("."); //é™¤2çš„30æ¬¡æ–¹ï¼Œæ‰¾åˆ°â€œ.â€çš„ç´¢å¼•
+			show=((float)size/1073741824+"000").substring(0,sub_index+3)+"GB"; //ä¿ç•™ä¸‰ä½
 			} 
 			return show; 
 	  }
       public String getpre_path(String str)
-      {//¼ÆËãµ±Ç°Â·¾¶µÄÉÏÒ»Â·¾¶
-    	     String[] name_str=str.split("\\\\");//javaÖĞ\\±íÊ¾\£¬¶øÔÚsplitµÄ²ÎÊıÀï£¬\\±íÊ¾\£¬ËùÒÔ\\\\±íÊ¾\\
+      {//è®¡ç®—å½“å‰è·¯å¾„çš„ä¸Šä¸€è·¯å¾„
+    	     String[] name_str=str.split("\\\\");//javaä¸­\\è¡¨ç¤º\ï¼Œè€Œåœ¨splitçš„å‚æ•°é‡Œï¼Œ\\è¡¨ç¤º\ï¼Œæ‰€ä»¥\\\\è¡¨ç¤º\\
     	     if(name_str.length==1)
     	    	 str="";
     	     else
@@ -201,19 +201,19 @@ public class data_inpc_activity extends ListActivity{
 			 list_adapter=new SimpleAdapter(data_inpc_activity.this,list, R.layout.file_list, 
 					   new String[]{"icon","name","size"},
 					   new int[]{R.id.icon,R.id.file_name,R.id.file_size});
-			   setListAdapter(list_adapter);//ÎªlistviewÉèÖÃÊÊÅäÆ÷
+			   setListAdapter(list_adapter);//ä¸ºlistviewè®¾ç½®é€‚é…å™¨
 		 }
 		   public MyHandler1(Looper L) {
 				   super(L);	     
 		   }
-	   // ×ÓÀà±ØĞëÖØĞ´´Ë·½·¨,½ÓÊÜÊı¾İ		      
+	   // å­ç±»å¿…é¡»é‡å†™æ­¤æ–¹æ³•,æ¥å—æ•°æ®		      
 		  @Override	    
 		    public void handleMessage(Message msg) {		           
 		 // TODO Auto-generated method stub		         
 		   super.handleMessage(msg); 
 
 		  TextView current_path=(TextView)findViewById(R.id.current_path);
-		  current_path.setText(path);//ÏÔÊ¾µ±Ç°Â·¾¶
+		  current_path.setText(path);//æ˜¾ç¤ºå½“å‰è·¯å¾„
 		    Bundle b = msg.getData();    
 		    data_inpc= b.getString("data");
 		    if(data_inpc.equals("ok"))
