@@ -29,7 +29,7 @@ public class model_mouse_activity extends Activity implements OnTouchListener, O
 	} 
 	    public boolean onKeyDown(int keyCode, KeyEvent event)  
 	    {  
-	        if (keyCode == KeyEvent.KEYCODE_BACK )  //·µ»Ø¼ü±»µã»÷
+	        if (keyCode == KeyEvent.KEYCODE_BACK )  //è¿”å›é”®è¢«ç‚¹å‡»
 	        {
 	        	sendmsg("return");
 	        	Intent function_activity=new Intent(model_mouse_activity.this,Function_activity.class);
@@ -63,10 +63,10 @@ public class model_mouse_activity extends Activity implements OnTouchListener, O
 				switch(event.getAction())
 				{
 				case KeyEvent.ACTION_DOWN:
-					sendmsg("singledown");//µ¥»ú°´ÏÂ
+					sendmsg("singledown");//å•æœºæŒ‰ä¸‹
 					break;
 				case KeyEvent.ACTION_UP:
-					sendmsg("singleup");//µ¥»úËÉ¿ª
+					sendmsg("singleup");//å•æœºæ¾å¼€
 					break;
 				default:
 					break; 
@@ -80,10 +80,10 @@ public class model_mouse_activity extends Activity implements OnTouchListener, O
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				sendmsg("right");//ÓÒ¼ü
+				sendmsg("right");//å³é”®
 			}
 		});
-		gestureDetector=new GestureDetector(this,this);//¶Ô¹öÖéÊÖÊÆÊ¶±ğ
+		gestureDetector=new GestureDetector(this,this);//å¯¹æ»šç æ‰‹åŠ¿è¯†åˆ«
 		wheel.setOnTouchListener(new OnTouchListener() {  
 			        public boolean onTouch(View v, MotionEvent event) {  
 			            // ... Respond to touch events         
@@ -91,7 +91,7 @@ public class model_mouse_activity extends Activity implements OnTouchListener, O
 			         return true; 
 			        }  
 			    });  
-		mGestureDetector=new GestureDetector(this,this);//¶Ô»¬°åÊÖÊÆÊ¶±ğ
+		mGestureDetector=new GestureDetector(this,this);//å¯¹æ»‘æ¿æ‰‹åŠ¿è¯†åˆ«
 		scroll.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View arg0, MotionEvent event1) {
@@ -124,10 +124,10 @@ public class model_mouse_activity extends Activity implements OnTouchListener, O
 			float distancey) {
 		// TODO Auto-generated method stub
 		 
-		scroll.getLocationOnScreen(position);  //»ñÈ¡scroll×óÉÏ½ÇÏà¶ÔÓÚÆÁÄ»×óÉÏ½ÇµÄ×ø±ê
-		if(e1.getRawY()<position[1])//ËµÃ÷µã»÷µÄÊÇ¹öÖé
+		scroll.getLocationOnScreen(position);  //è·å–scrollå·¦ä¸Šè§’ç›¸å¯¹äºå±å¹•å·¦ä¸Šè§’çš„åæ ‡
+		if(e1.getRawY()<position[1])//è¯´æ˜ç‚¹å‡»çš„æ˜¯æ»šç 
 		{
-			if(distancey>0)//ÏòÉÏ»¬
+			if(distancey>0)//å‘ä¸Šæ»‘
 			{
 				sendmsg("up");
 			}
@@ -136,11 +136,11 @@ public class model_mouse_activity extends Activity implements OnTouchListener, O
 				sendmsg("down");
 			}
 		}
-		else//µã»÷µÄÊÇ´¥Ãş°å
+		else//ç‚¹å‡»çš„æ˜¯è§¦æ‘¸æ¿
 		{
 			x=(int)distancex;
 			y=(int)distancey;
-			xy=String.valueOf(x)+"+"+String.valueOf(y);//×ª»¯ÎªX+YµÄĞÎÊ½·¢ËÍ
+			xy=String.valueOf(x)+"+"+String.valueOf(y);//è½¬åŒ–ä¸ºX+Yçš„å½¢å¼å‘é€
 			sendmsg(xy);
 		}
 		return false;
