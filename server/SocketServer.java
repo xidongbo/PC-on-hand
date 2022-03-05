@@ -48,79 +48,79 @@ public class SocketServer implements Runnable{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	        JFrame f=new JFrame("»¶Ó­Ê¹ÓÃxxxx·şÎñ¶Ë");
-	        int screenwidth=(int)f.getToolkit().getScreenSize().getWidth();//»ñÈ¡ÆÁÄ»¿í¶È
-			int screenheight=(int)f.getToolkit().getScreenSize().getHeight();//»ñÈ¡ÆÁÄ»¸ß¶È
+	        JFrame f=new JFrame("æ¬¢è¿ä½¿ç”¨xxxxæœåŠ¡ç«¯");
+	        int screenwidth=(int)f.getToolkit().getScreenSize().getWidth();//è·å–å±å¹•å®½åº¦
+			int screenheight=(int)f.getToolkit().getScreenSize().getHeight();//è·å–å±å¹•é«˜åº¦
 			Dimension dm=f.getSize();
-			int frameWidth=(int)dm.getWidth();//»ñÈ¡½çÃæ¿í¶È
-			int frameHeight=(int)dm.getHeight();//»ñÈ¡½çÃæ¸ß¶È
+			int frameWidth=(int)dm.getWidth();//è·å–ç•Œé¢å®½åº¦
+			int frameHeight=(int)dm.getHeight();//è·å–ç•Œé¢é«˜åº¦
 			ImageIcon background=new ImageIcon("background.png");
-			JLabel label = new JLabel(background); // °Ñ±³¾°Í¼Æ¬ÏÔÊ¾ÔÚÒ»¸ö±êÇ©Àï
-			label.setBounds(0,0,background.getIconWidth(),background.getIconHeight());//°Ñ±êÇ©µÄ´óĞ¡Î»ÖÃÉèÖÃÎªÍ¼Æ¬¸ÕºÃÌî³äÕû¸öÃæ 
-			f.getLayeredPane().add(label,new Integer(Integer.MIN_VALUE)); //Ìí¼ÓÍ¼Æ¬µ½frameµÄµÚ¶ş²ã
-			JPanel jp=(JPanel)f.getContentPane(); //»ñÈ¡frameµÄ×îÉÏ²ãÃæ°åÎªÁËÉèÖÃÆä±³¾°ÑÕÉ«£¨JPanelÓĞÉèÖÃÍ¸Ã÷µÄ·½·¨£©
-			jp.setOpaque(false);//ÉèÖÃÍ¸Ã÷ÒÔÊ¹±³¾°Í¼Æ¬ÏÔÊ¾
+			JLabel label = new JLabel(background); // æŠŠèƒŒæ™¯å›¾ç‰‡æ˜¾ç¤ºåœ¨ä¸€ä¸ªæ ‡ç­¾é‡Œ
+			label.setBounds(0,0,background.getIconWidth(),background.getIconHeight());//æŠŠæ ‡ç­¾çš„å¤§å°ä½ç½®è®¾ç½®ä¸ºå›¾ç‰‡åˆšå¥½å¡«å……æ•´ä¸ªé¢ 
+			f.getLayeredPane().add(label,new Integer(Integer.MIN_VALUE)); //æ·»åŠ å›¾ç‰‡åˆ°frameçš„ç¬¬äºŒå±‚
+			JPanel jp=(JPanel)f.getContentPane(); //è·å–frameçš„æœ€ä¸Šå±‚é¢æ¿ä¸ºäº†è®¾ç½®å…¶èƒŒæ™¯é¢œè‰²ï¼ˆJPanelæœ‰è®¾ç½®é€æ˜çš„æ–¹æ³•ï¼‰
+			jp.setOpaque(false);//è®¾ç½®é€æ˜ä»¥ä½¿èƒŒæ™¯å›¾ç‰‡æ˜¾ç¤º
 			
 	        JMenuBar mb=new JMenuBar();
-	        mb.setBackground(Color.orange);//ÉèÖÃ±³¾°ÑÕÉ«
-	        JMenu function=new JMenu("¹¦ÄÜ½éÉÜ");
-	        function.setFont(new Font("dialog", 1, 15));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        JMenu use=new JMenu("Ê¹ÓÃ·½·¨");
+	        mb.setBackground(Color.orange);//è®¾ç½®èƒŒæ™¯é¢œè‰²
+	        JMenu function=new JMenu("åŠŸèƒ½ä»‹ç»");
+	        function.setFont(new Font("dialog", 1, 15));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        JMenu use=new JMenu("ä½¿ç”¨æ–¹æ³•");
 	        use.setFont(new Font("dialog", 1, 15));
-	        JMenu set=new JMenu("ÉèÖÃ");
+	        JMenu set=new JMenu("è®¾ç½®");
 	        set.setFont(new Font("dialog", 1, 15));
-	        JMenu about=new JMenu("¹ØÓÚ");
+	        JMenu about=new JMenu("å…³äº");
 	        about.setFont(new Font("dialog", 1, 15));
 	        
-	        JMenuItem data_inpc=new JMenuItem("µçÄÔÎÄ¼ş");
+	        JMenuItem data_inpc=new JMenuItem("ç”µè„‘æ–‡ä»¶");
 	        data_inpc.setFont(new Font("dialog", 1, 15));
-	        JMenuItem model_mouse=new JMenuItem("Ä£ÄâÊó±ê");
+	        JMenuItem model_mouse=new JMenuItem("æ¨¡æ‹Ÿé¼ æ ‡");
 	        model_mouse.setFont(new Font("dialog", 1, 15));
-	        JMenuItem model_touch=new JMenuItem("Ä£Äâ´¥Ãş°å");
+	        JMenuItem model_touch=new JMenuItem("æ¨¡æ‹Ÿè§¦æ‘¸æ¿");
 	        model_touch.setFont(new Font("dialog", 1, 15));
-	        JMenuItem camera=new JMenuItem("Ô¶³ÌÉãÏñÍ·");
+	        JMenuItem camera=new JMenuItem("è¿œç¨‹æ‘„åƒå¤´");
 	        camera.setFont(new Font("dialog", 1, 15));
-	        JMenuItem control=new JMenuItem("ÊµÊ±¿ØÖÆ");
+	        JMenuItem control=new JMenuItem("å®æ—¶æ§åˆ¶");
 	        control.setFont(new Font("dialog", 1, 15));
-	        JMenuItem power=new JMenuItem("µçÔ´");
+	        JMenuItem power=new JMenuItem("ç”µæº");
 	        power.setFont(new Font("dialog", 1, 15));
-	        JMenuItem more=new JMenuItem("¸ü¶à");
+	        JMenuItem more=new JMenuItem("æ›´å¤š");
 	        more.setFont(new Font("dialog", 1, 15));
-	        JMenuItem start=new JMenuItem("¿ª»úÆô¶¯");
+	        JMenuItem start=new JMenuItem("å¼€æœºå¯åŠ¨");
 	        start.setFont(new Font("dialog", 1, 15));
-	        JMenuItem port=new JMenuItem("¶Ë¿Ú");
+	        JMenuItem port=new JMenuItem("ç«¯å£");
 	        port.setFont(new Font("dialog", 1, 15));
 	        
-	        JLabel iptext=new JLabel("·şÎñ¶ËIP£º"+ip);
-	        JLabel connecttext=new JLabel("·şÎñ¶ËÒÑ¿ªÆô£¬µÈ´ı¿Í»§¶ËÁ¬½Ó¡­¡­");
-	        JLabel all_function=new JLabel("¾ßÌå¹¦ÄÜ:");
-	        JLabel data_inpc_jlabel=new JLabel("µçÄÔÎÄ¼ş");
-	        JLabel model_mouse_jlabel=new JLabel("Ä£ÄâÊó±ê");
-	        JLabel model_touch_jlabel=new JLabel("Ä£Äâ´¥Ãş°å");
-	        JLabel camrea_jlabel=new JLabel("Ô¶³ÌÉãÏñÍ·");
-	        JLabel control_jlabel=new JLabel("ÊµÊ±¿ØÖÆ");
-	        JLabel power_jlabel=new JLabel("µçÔ´");
-	        JLabel more_jlabel=new JLabel("¸ü¶à");
+	        JLabel iptext=new JLabel("æœåŠ¡ç«¯IPï¼š"+ip);
+	        JLabel connecttext=new JLabel("æœåŠ¡ç«¯å·²å¼€å¯ï¼Œç­‰å¾…å®¢æˆ·ç«¯è¿æ¥â€¦â€¦");
+	        JLabel all_function=new JLabel("å…·ä½“åŠŸèƒ½:");
+	        JLabel data_inpc_jlabel=new JLabel("ç”µè„‘æ–‡ä»¶");
+	        JLabel model_mouse_jlabel=new JLabel("æ¨¡æ‹Ÿé¼ æ ‡");
+	        JLabel model_touch_jlabel=new JLabel("æ¨¡æ‹Ÿè§¦æ‘¸æ¿");
+	        JLabel camrea_jlabel=new JLabel("è¿œç¨‹æ‘„åƒå¤´");
+	        JLabel control_jlabel=new JLabel("å®æ—¶æ§åˆ¶");
+	        JLabel power_jlabel=new JLabel("ç”µæº");
+	        JLabel more_jlabel=new JLabel("æ›´å¤š");
 	        
-	        iptext.setBounds(30, 30, 300, 20);//ÉèÖÃÎ»ÖÃ
-	        iptext.setFont(new Font("dialog", 1, 20));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        connecttext.setBounds(30, 70, 400, 20);//ÉèÖÃÎ»ÖÃ
-	        connecttext.setFont(new Font("dialog", 1, 20));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        all_function.setBounds(10, 200, 200, 30);//ÉèÖÃÎ»ÖÃ
-	        all_function.setFont(new Font("dialog", 1, 30));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        data_inpc_jlabel.setBounds(130, 260, 200, 30);//ÉèÖÃÎ»ÖÃ
-	        data_inpc_jlabel.setFont(new Font("dialog", 1, 25));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        model_mouse_jlabel.setBounds(220, 330, 200, 30);//ÉèÖÃÎ»ÖÃ
-	        model_mouse_jlabel.setFont(new Font("dialog", 1, 25));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        model_touch_jlabel.setBounds(345, 330, 200, 30);//ÉèÖÃÎ»ÖÃ
-	        model_touch_jlabel.setFont(new Font("dialog", 1, 25));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        camrea_jlabel.setBounds(420, 260, 200, 30);//ÉèÖÃÎ»ÖÃ
-	        camrea_jlabel.setFont(new Font("dialog", 1, 25));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        control_jlabel.setBounds(280, 260, 200, 30);//ÉèÖÃÎ»ÖÃ
-	        control_jlabel.setFont(new Font("dialog", 1, 25));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        power_jlabel.setBounds(130, 330, 200, 30);//ÉèÖÃÎ»ÖÃ
-	        power_jlabel.setFont(new Font("dialog", 1, 25));//ÉèÖÃ×ÖÌå¡¢ÑùÊ½£¨´ÖÏ¸£©¡¢×ÖºÅ
-	        more_jlabel.setBounds(500, 330, 200, 30);//ÉèÖÃÎ»ÖÃ
+	        iptext.setBounds(30, 30, 300, 20);//è®¾ç½®ä½ç½®
+	        iptext.setFont(new Font("dialog", 1, 20));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        connecttext.setBounds(30, 70, 400, 20);//è®¾ç½®ä½ç½®
+	        connecttext.setFont(new Font("dialog", 1, 20));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        all_function.setBounds(10, 200, 200, 30);//è®¾ç½®ä½ç½®
+	        all_function.setFont(new Font("dialog", 1, 30));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        data_inpc_jlabel.setBounds(130, 260, 200, 30);//è®¾ç½®ä½ç½®
+	        data_inpc_jlabel.setFont(new Font("dialog", 1, 25));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        model_mouse_jlabel.setBounds(220, 330, 200, 30);//è®¾ç½®ä½ç½®
+	        model_mouse_jlabel.setFont(new Font("dialog", 1, 25));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        model_touch_jlabel.setBounds(345, 330, 200, 30);//è®¾ç½®ä½ç½®
+	        model_touch_jlabel.setFont(new Font("dialog", 1, 25));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        camrea_jlabel.setBounds(420, 260, 200, 30);//è®¾ç½®ä½ç½®
+	        camrea_jlabel.setFont(new Font("dialog", 1, 25));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        control_jlabel.setBounds(280, 260, 200, 30);//è®¾ç½®ä½ç½®
+	        control_jlabel.setFont(new Font("dialog", 1, 25));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        power_jlabel.setBounds(130, 330, 200, 30);//è®¾ç½®ä½ç½®
+	        power_jlabel.setFont(new Font("dialog", 1, 25));//è®¾ç½®å­—ä½“ã€æ ·å¼ï¼ˆç²—ç»†ï¼‰ã€å­—å·
+	        more_jlabel.setBounds(500, 330, 200, 30);//è®¾ç½®ä½ç½®
 	        more_jlabel.setFont(new Font("dialog",1,25));
 	        
 	        f.getContentPane().setLayout(null);
@@ -152,16 +152,16 @@ public class SocketServer implements Runnable{
 			set.add(port);
 			
 			f.setJMenuBar(mb);
-			f.setAlwaysOnTop(true);//×ÜÊÇÔÚ×ÀÃæµÄ×îÇ°±ß
-			f.setResizable(false);//²»ÄÜ¸Ä±ä´°¿Ú´óĞ¡
+			f.setAlwaysOnTop(true);//æ€»æ˜¯åœ¨æ¡Œé¢çš„æœ€å‰è¾¹
+			f.setResizable(false);//ä¸èƒ½æ”¹å˜çª—å£å¤§å°
 			f.setSize(600, 490);
-			f.setLocation((screenwidth-frameWidth)/4,(screenheight-frameHeight)/4);//ÉèÖÃ½çÃæÎ»ÓÚÆÁÄ»ÖĞÑë
+			f.setLocation((screenwidth-frameWidth)/4,(screenheight-frameHeight)/4);//è®¾ç½®ç•Œé¢ä½äºå±å¹•ä¸­å¤®
 			f.setVisible(true);
 		    f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	        try {  
 	            if((socket=serverSocket.accept())!=null){   
-	            	connecttext.setText("¿Í»§¶ËÁ¬½Ó³É¹¦");
-	                new Thread(this).start();    //ÕìÌıµ½Ò»¸ö¿Í»§¶ËµÄÁ¬½Ó£¬¿ªÆôÒ»¸ö¹¤×÷Ïß³Ì 
+	            	connecttext.setText("å®¢æˆ·ç«¯è¿æ¥æˆåŠŸ");
+	                new Thread(this).start();    //ä¾¦å¬åˆ°ä¸€ä¸ªå®¢æˆ·ç«¯çš„è¿æ¥ï¼Œå¼€å¯ä¸€ä¸ªå·¥ä½œçº¿ç¨‹ 
 	            }  
 	        } catch (IOException e) {  
 	            // TODO Auto-generated catch block  
@@ -185,10 +185,10 @@ public class SocketServer implements Runnable{
 	            os=sk.getOutputStream();
 	            br=new BufferedReader(new InputStreamReader(is,"Utf8"));  
 	            pw=new PrintWriter(os);
-	            while(!sk.isClosed())//µ±¿Í»§¶ËÃ»ÓĞ¹Ø±Õ£¬Ôò½øĞĞÊı¾İÍ¨ĞÅ
+	            while(!sk.isClosed())//å½“å®¢æˆ·ç«¯æ²¡æœ‰å…³é—­ï¼Œåˆ™è¿›è¡Œæ•°æ®é€šä¿¡
 	            {
 	            	String str;
-	            	while((str=br.readLine())!=null)//½ÓÊÕ´Ó·şÎñ¶Ë·¢À´µÄ×Ö·û´®
+	            	while((str=br.readLine())!=null)//æ¥æ”¶ä»æœåŠ¡ç«¯å‘æ¥çš„å­—ç¬¦ä¸²
 	            	{
 	            	    switch(str)
 	            	    {
@@ -252,9 +252,9 @@ public class SocketServer implements Runnable{
 	            	    break;
 	            	    }
 	            	}
-	            	System.exit(0);//¿Í»§¶Ë¶Ï¿ª£¬¹Ø±Õ³ÌĞò
+	            	System.exit(0);//å®¢æˆ·ç«¯æ–­å¼€ï¼Œå…³é—­ç¨‹åº
 	            }
-	            System.exit(0);//¿Í»§¶Ë¶Ï¿ª£¬¹Ø±Õ³ÌĞò
+	            System.exit(0);//å®¢æˆ·ç«¯æ–­å¼€ï¼Œå…³é—­ç¨‹åº
 	        } catch (IOException e) {  
 	            // TODO Auto-generated catch block  
 	            e.printStackTrace();  
